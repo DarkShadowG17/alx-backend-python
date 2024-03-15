@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-"""
-Module for task 12 - Type Checking
+"""Use mypy to validate the following piece of code
+and apply any necessary changes.
 """
 
-from typing import Tuple, List
+from typing import Tuple, List, Any
 
-def zoom_array(lst: Tuple[int, ...], factor: int = 2) -> List[int]:
-    zoomed_in: List[int] = [
+
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """Corrected annotations"""
+    zoomed_in: List = [
         item for item in lst
-        for _ in range(factor)
+        for i in range(factor)
     ]
     return zoomed_in
 
-array = [12, 72, 91]
+
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
-# This would cause a type error because 3.0 is a float. Commenting it out for now.
-# zoom_3x = zoom_array(array, 3.0)
+zoom_3x = zoom_array(array, 3)
