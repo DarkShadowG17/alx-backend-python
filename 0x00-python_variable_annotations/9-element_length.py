@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
+"""Annotate the below function’s parameters and return
+values with the appropriate types
+
+def element_length(lst):
+    return [(i, len(i)) for i in lst]
+
+{'lst': typing.Iterable[typing.Sequence], 'return': \
+    typing.List[typing.Tuple[typing.Sequence, int]]}
 """
-Module for task 9 - Let's duck type an iterable object
-"""
-
-from typing import Iterable, Sequence, List, Tuple
 
 
-def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
-    """
-    Takes an iterable object 
-    """
+import typing
+
+
+def element_length(lst: typing.Iterable[typing.Sequence]) -> \
+        typing.List[typing.Tuple[typing.Sequence, int]]:
+    """Returns a list of tuples"""
     return [(i, len(i)) for i in lst]
